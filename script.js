@@ -40,4 +40,24 @@ function handleProductChange(product,isIncrease){
         productTotal = productNewCount * 59;
     }
     document.getElementById(product + '-total').innerText = '$' + productTotal;
+    calculateTotal();
+}
+
+function calculateTotal(){
+    // const phoneInput = document.getElementById("phone-count");
+    // const phoneCount = parseInt(phoneInput.value);
+
+    // const caseInput = document.getElementById("case-count");
+    // const caseCount = parseInt(caseInput.value);
+    const phoneCount = getInputValue('phone');
+    const caseCount = getInputValue('case');
+
+    const totalCount = phoneCount * 1219 + caseCount * 59;
+    document.getElementById("sub-total").innerText = '$' + totalCount;
+}
+
+function getInputValue(product){
+    const productInput = document.getElementById(product + "-count");
+    const productCount = parseInt(productInput.value);
+    return productCount;
 }
